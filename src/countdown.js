@@ -1,4 +1,4 @@
-import confetti from "canvas-confetti"
+import confetti from "canvas-confetti";
 export function setupCountdown() {
   function confettiParty() {
     var duration = 15 * 1000;
@@ -33,7 +33,7 @@ export function setupCountdown() {
 
   const header = document.querySelector("[data-header]");
   // Set the date we're counting down to
-  const date = "Jan 1, 2025 00:00:00";
+  const date = "Jan 1, 2026 00:00:00";
   // Update the countdown every 1 second
   const daysDisplay = document.querySelector("[data-days]");
   const hoursDisplay = document.querySelector("[data-hours]");
@@ -53,49 +53,24 @@ export function setupCountdown() {
       hoursDisplay.textContent = "00";
       minutesDisplay.textContent = "00";
       secondsDisplay.textContent = "00";
-      header.innerHTML = `<h1 class="animate-bounce">Happy New Year <span class="bg-gradient-to-tr from-purple-500 to-orange-500 bg-clip-text text-transparent">2025 </span>🎊🎉🥳 !</h1>`;
+      header.innerHTML = `<h1 class="animate-bounce">Happy New Year <span class="bg-gradient-to-tr from-blue-400 to-green-400 bg-clip-text text-transparent">2026 </span>🎊🎉🥳 !</h1>`;
 
       // Create dialog element
       const dialog = document.createElement("dialog");
-      dialog.classList.add(
-        "modal",
-        "fixed",
-        "top-1/2",
-        "left-1/2",
-        "transform",
-        "-translate-x-1/2",
-        "-translate-y-[55%]",
-        "bg-white",
-        "rounded-lg",
-        "shadow-xl",
-        "p-6",
-        "lg:-translate-y-[85%]"
-      );
+      dialog.classList.add("dialog");
 
       // Create dialog content
       const dialogContent = document.createElement("div");
       dialogContent.innerHTML = `
         <h2 class="text-3xl font-bold mb-4">Happy New Year 🎉🥳!</h2>
-        <p class="text-lg tracking-wider">Welcome to 2025, dear loved one, may the Lord grant you your resolutions for this year, as you have discussed with him, if it aligns with his own will. God bless you and keep you throughout this year too 💓💗!. Happy New Year 🎉🥳! </p>
+        <p class="text-lg tracking-wider">Welcome to 2026, dear loved one, may the Lord grant you your resolutions for this year, as you have discussed with him, if it aligns with his own will. God bless you and keep you throughout this year too 💓💗!. Happy New Year 🎉🥳! </p>
       `;
       dialog.appendChild(dialogContent);
 
       // Add close button
       const closeButton = document.createElement("button");
-      closeButton.textContent = "Same to You 🎉🥳!";
-      closeButton.classList.add(
-        "animate-bounce",
-        "mt-4",
-        "bg-blue-500",
-        "hover:bg-blue-700",
-        "text-white",
-        "font-bold",
-        "py-2",
-        "px-4",
-        "rounded",
-        "w-full",
-        "lg:w-fit"
-      );
+      closeButton.textContent = "Yayyy 🎉🥳!!!";
+      closeButton.classList.add("close-btn");
       closeButton.addEventListener("click", () => {
         dialog.close();
         window.close();
@@ -105,10 +80,11 @@ export function setupCountdown() {
       // Show dialog
       document.body.appendChild(dialog);
       dialog.showModal();
-      confettiParty()
+      confettiParty();
 
       return;
     }
+    
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
     const hours = Math.floor(
       (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
